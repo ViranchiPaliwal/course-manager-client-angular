@@ -5,9 +5,13 @@ import {routing} from './app.routing';
 import { AppComponent } from './app.component';
 import { WhiteBoardComponent } from './white-board/white-board.component';
 import { CourseServiceClient } from './services/course.service.client';
+import { ModuleServiceClient} from './services/module.service.client';
+
 import { CourseGridComponent } from './course-grid/course-grid.component';
 import { CourseViewerComponent } from './course-viewer/course-viewer.component';
 import { ModuleListComponent } from './module-list/module-list.component';
+import { LessonTabsComponent } from './lesson-tabs/lesson-tabs.component';
+import {LessonServiceClient} from './services/lesson.service.client';
 
 @NgModule({
   declarations: [
@@ -15,14 +19,17 @@ import { ModuleListComponent } from './module-list/module-list.component';
     WhiteBoardComponent,
     CourseGridComponent,
     CourseViewerComponent,
-    ModuleListComponent
+    ModuleListComponent,
+    LessonTabsComponent
   ],
   imports: [
     BrowserModule,
     routing
   ],
   providers: [
-      CourseServiceClient
+      CourseServiceClient,
+      ModuleServiceClient,
+      LessonServiceClient
   ],
   bootstrap: [AppComponent]
 })
