@@ -12,6 +12,8 @@ import { CourseViewerComponent } from './course-viewer/course-viewer.component';
 import { ModuleListComponent } from './module-list/module-list.component';
 import { LessonTabsComponent } from './lesson-tabs/lesson-tabs.component';
 import {LessonServiceClient} from './services/lesson.service.client';
+import { TopicTabsComponent } from './topic-tabs/topic-tabs.component';
+import {TopicServiceClient} from './services/topic.service.client';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import {LessonServiceClient} from './services/lesson.service.client';
     CourseGridComponent,
     CourseViewerComponent,
     ModuleListComponent,
-    LessonTabsComponent
+    LessonTabsComponent,
+    TopicTabsComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import {LessonServiceClient} from './services/lesson.service.client';
   providers: [
       CourseServiceClient,
       ModuleServiceClient,
-      LessonServiceClient
+      LessonServiceClient,
+      TopicServiceClient
   ],
   bootstrap: [AppComponent]
 })

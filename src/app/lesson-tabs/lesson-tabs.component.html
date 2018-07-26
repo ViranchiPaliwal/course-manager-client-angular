@@ -3,8 +3,9 @@
       class="nav-item">
     <a class="nav-link"
        [ngClass]="{'active': lesson.id == lessonId}"
-       routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson.id}}">
+       routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson.id}}/topic">
       {{lesson.title}}
     </a>
   </li>
 </ul>
+<app-topic-tabs></app-topic-tabs>
