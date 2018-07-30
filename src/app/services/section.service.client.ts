@@ -23,6 +23,13 @@ export class SectionServiceClient {
             .then(response => response.json());
     }
 
+    findEnrollments(){
+        return fetch('http://localhost:4000/api/section', {
+            credentials: 'include'
+        })
+            .then(response => response.json());
+    }
+
     createSection(courseId, name, seats) {
         const section = {courseId, name, seats};
         return fetch(this.SECTION_URL.replace('COURSEID', courseId), {

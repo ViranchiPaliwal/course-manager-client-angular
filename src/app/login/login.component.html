@@ -1,17 +1,14 @@
-<div class="container-fluid">
-  <h1>Login</h1>
-
+<app-navigation-bar [isLoggedIn]="isLoggedIn"></app-navigation-bar>
+<div class="container">
+  <h2 class="login-component">Login</h2>
   <input [(ngModel)]="username"
          placeholder="username"
-         class="form-control"/>
+         class="form-control login-component"/>
   <input [(ngModel)]="password"
          placeholder="password"
-         class="form-control"/>
+         class="form-control login-component"/>
   <button (click)="login(username, password)"
-          class="btn btn-primary btn-block">
+          class="btn btn-primary btn-block login-component">
     Login
   </button>
-
-  <a routerLink="/register">Register</a>
-  <a routerLink="/home">Home</a>
 </div>

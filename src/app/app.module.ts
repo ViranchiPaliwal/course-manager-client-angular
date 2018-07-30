@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {routing} from './app.routing';
-
+import {FormsModule} from "@angular/forms";
 import { AppComponent } from './app.component';
 import { WhiteBoardComponent } from './white-board/white-board.component';
 import { CourseServiceClient } from './services/course.service.client';
@@ -21,6 +21,8 @@ import {UserServiceClient} from './services/user.service.client';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import {SectionServiceClient} from './services/section.service.client';
+import { SectionListComponent } from './section-list/section-list.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
@@ -34,10 +36,13 @@ import {SectionServiceClient} from './services/section.service.client';
     WidgetListComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    SectionListComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     routing
   ],
   providers: [

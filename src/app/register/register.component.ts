@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
     username;
     password;
     password2;
+    isLoggedIn = false;
     register(username, password, password2) {
         this.service
             .createUser(username, password)

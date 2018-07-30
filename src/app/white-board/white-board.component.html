@@ -1,6 +1,12 @@
+<app-navigation-bar [isLoggedIn]="isLoggedIn"></app-navigation-bar>
 <div class="container-fluid">
-  <h1>
-    White Board
-  </h1>
+    <div *ngIf="!login">
+      <h3>Enrolled Courses:</h3>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let course of coursesEnrolled">
+          {{course.title}}
+        </li>
+      </ul>
+    </div>
   <app-course-grid></app-course-grid>
 </div>
