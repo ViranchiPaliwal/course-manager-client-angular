@@ -58,7 +58,7 @@ export class UserServiceClient {
             username: username,
             password: password
         };
-        return fetch(this.URL + '/register', {
+        return fetch(this.URL + 'register', {
             body: JSON.stringify(user),
             credentials: 'include', // include, same-origin, *omit
             method: 'post',

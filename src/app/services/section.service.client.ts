@@ -49,7 +49,7 @@ export class SectionServiceClient {
     }
 
     findAllSections() {
-        return fetch(this.URL + '/section')
+        return fetch(this.URL + 'section')
             .then(response => response.json());
     }
 
@@ -65,7 +65,7 @@ export class SectionServiceClient {
             courseId: courseId,
             seats: seats
         };
-        return fetch(this.URL + '/section/' + sectionId, {
+        return fetch(this.URL + 'section/' + sectionId, {
             method: 'put',
             body: JSON.stringify(section),
             headers: {
