@@ -16,11 +16,27 @@ export class RegisterComponent implements OnInit {
     password;
     password2;
     isLoggedIn = false;
+    isPasswordInvaild = false;
+    isUsernameExist = false;
     register(username, password, password2) {
-        this.service
-            .createUser(username, password)
-            .then(() =>
-                this.router.navigate(['profile']));
+        if (password !== password2) {
+            this.isPasswordInvaild = true;
+            return;
+        } else {
+            this.isPasswordInvaild = false;
+        }
+        this.service.findUserByUserName(username)
+            .then(user => {
+                if (user.invalid) {
+                    this.isUsernameExist = false;
+                    this.service
+                        .createUser(username, password)
+                        .then(() =>
+                            this.router.navigate(['profile']));
+                } else {
+                    this.isUsernameExist = true;
+                }
+            });
     }
 
     ngOnInit() {

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {SectionServiceClient} from "../services/section.service.client";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {SectionServiceClient} from '../services/section.service.client';
+import {UserServiceClient} from '../services/user.service.client';
 
 @Component({
     selector: 'app-section-list',
@@ -10,15 +11,26 @@ import {SectionServiceClient} from "../services/section.service.client";
 export class SectionListComponent implements OnInit {
 
     constructor(private service: SectionServiceClient,
+                private userService: UserServiceClient,
                 private router: Router,
                 private route: ActivatedRoute) {
-        this.route.params.subscribe(params => this.loadSections(params['courseId']))
+        this.userService.profile()
+            .then(user => {
+                if (!user.invalid) {
+                    this.isLoggedIn = true;
+                }
+            })
+            .then(() => {
+                this.route.params.subscribe(params => this.loadSections(params['courseId']));
+            });
     }
 
     sectionName = '';
     seats = '';
     courseId = '';
     sections = [];
+    isLoggedIn = false;
+
     loadSections(courseId) {
         this.courseId = courseId;
         this

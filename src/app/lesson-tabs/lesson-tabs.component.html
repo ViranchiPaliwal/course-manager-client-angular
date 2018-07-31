@@ -1,7 +1,7 @@
 <ul class="nav nav-tabs">
   <li *ngFor="let lesson of lessons"
       class="nav-item">
-    <a class="nav-link"
+    <a class="nav-link wbdv"
        [ngClass]="{'active': lesson.id == lessonId}"
        routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson.id}}/topic">
       {{lesson.title}}

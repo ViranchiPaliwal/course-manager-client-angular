@@ -1,33 +1,57 @@
-<div class="container-fluid">
-  <h1>Profile</h1>
+<app-navigation-bar [isLoggedIn]="isLoggedIn" [isAdmin]="isAdmin"></app-navigation-bar>
+<div class="container">
+    <h2 class="profile-component">Profile</h2>
 
-  <input [(ngModel)]="username"
-         placeholder="username"
-         class="form-control"/>
-  <input [(ngModel)]="firstName"
-         placeholder="first name"
-         class="form-control"/>
-  <input [(ngModel)]="lastName"
-         placeholder="lastName"
-         class="form-control"/>
-  <input [(ngModel)]="email"
-         placeholder="email"
-         class="form-control"/>
-  <button (click)="update()"
-          class="btn btn-primary btn-block">
-    Update
-  </button>
+    <label for="username">Username</label>
+    <input id="username"
+           readonly
+           [(ngModel)]="user.username"
+           placeholder="Bob124"
+           class="form-control profile-input"/>
+    <label for="first">First Name</label>
+    <input id="first"
+           [(ngModel)]="user.firstName"
+           placeholder="Bob"
+           class="form-control profile-input"/>
+    <label for="last">Last Name</label>
+    <input id="last"
+           [(ngModel)]="user.lastName"
+           placeholder="Affleck"
+           class="form-control profile-input"/>
+    <label for="email">Email Address</label>
+    <input id="email"
+           type="email"
+           [(ngModel)]="user.email"
+           placeholder="bob@gmail.com"
+           class="form-control profile-input"/>
+    <label for="phone">Phone Number</label>
+    <input id="phone"
+           type="number"
+           [(ngModel)]="user.phone"
+           placeholder="8675641232"
+           class="form-control profile-input"/>
+    <label for="address">Address</label>
+    <input id="address"
+           [(ngModel)]="user.address"
+           placeholder="120 River View Apt."
+           class="form-control profile-input"/>
 
-  <h2>Sections ({{sections.length}})</h2>
+    <button (click)="updateProfile()"
+            class="btn btn-success btn-block profile-btn">
+        Update
+    </button>
 
-  <ul class="list-group">
-    <li *ngFor="let enrollment of sections" class="list-group-item">
-      {{enrollment.section.name}}
-      ({{enrollment.section.seats}})
-    </li>
-  </ul>
+    <h2>Sections Enrolled</h2>
 
-  <a (click)="logout()">Logout</a>
-  <a routerLink="/home">Home</a>
-
+    <div *ngFor="let course of courses">
+        <ul class="list-group">
+            <div *ngFor="let enrollment of enrollments">
+                <li *ngIf="course.id===enrollment.section.courseId" class="list-group-item">
+                    <a routerLink="/course/{{course.id}}/section"><b>{{course.title}}</b> {{enrollment.section.name}}
+                        ({{enrollment.section.seats}})</a>
+                    <button class="btn-danger float-right" (click)="unEnrollSection(enrollment)">Unenroll</button>
+                </li>
+            </div>
+        </ul>
+    </div>
 </div>

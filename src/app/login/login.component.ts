@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Route, Router} from '@angular/router';
 import {UserServiceClient} from '../services/user.service.client';
 
@@ -17,13 +17,19 @@ export class LoginComponent implements OnInit {
         console.log([username, password]);
         this.service
             .login(username, password)
-            .then(() => {
-                this.router.navigate(['profile']);
+            .then((user) => {
+                if (!user.invalid) {
+                    this.router.navigate(['profile']);
+                } else {
+                    alert('User not found. Kindly relogin or register if new.');
+                    this.router.navigate(['login']);
+                }
             });
     }
 
     constructor(private router: Router,
-                private service: UserServiceClient) { }
+                private service: UserServiceClient) {
+    }
 
     ngOnInit() {
     }

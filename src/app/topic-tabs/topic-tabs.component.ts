@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {TopicServiceClient} from '../services/topic.service.client';
 
 @Component({
-  selector: 'app-topic-tabs',
-  templateUrl: './topic-tabs.component.html',
-  styleUrls: ['./topic-tabs.component.css']
+    selector: 'app-topic-tabs',
+    templateUrl: './topic-tabs.component.html',
+    styleUrls: ['./topic-tabs.component.css']
 })
 export class TopicTabsComponent implements OnInit {
 
@@ -29,8 +29,8 @@ export class TopicTabsComponent implements OnInit {
         this.loadTopics(this.courseId, this.moduleId, this.lessonId);
     }
 
-    loadTopics(courseId , moduleId, lessonId) {
-        this.service.findAllTopics(courseId , moduleId, lessonId)
+    loadTopics(courseId, moduleId, lessonId) {
+        this.service.findAllTopics(courseId, moduleId, lessonId)
             .then(topics => this.topics = topics);
     }
 
