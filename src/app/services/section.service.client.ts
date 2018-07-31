@@ -1,7 +1,7 @@
 export class SectionServiceClient {
 
-    SECTION_URL = 'http://localhost:4000/api/course/COURSEID/section';
-    URL = 'http://localhost:4000/api/';
+    SECTION_URL = 'https://webdev-server-node.herokuapp.com/api/course/COURSEID/section';
+    URL = 'https://webdev-server-node.herokuapp.com/api/';
 
     findSectionsForStudent() {
         const url = this.URL + 'student/section';

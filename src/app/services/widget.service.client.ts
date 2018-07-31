@@ -1,5 +1,5 @@
 export class WidgetServiceClient {
-    TOPIC_URL = 'http://localhost:8080/api/topic/TOPIC_ID/widget';
+    TOPIC_URL = 'https://web-dev-summer-online-2018.herokuapp.com/api/topic/TOPIC_ID/widget';
 
     findWidgetsForTopic(topicId) {
         return fetch(this.TOPIC_URL.replace('TOPIC_ID', topicId))

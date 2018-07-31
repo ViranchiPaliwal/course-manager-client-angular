@@ -1,5 +1,5 @@
 export class LessonServiceClient {
-    URL = 'http://localhost:8080/api/';
+    URL = 'https://web-dev-summer-online-2018.herokuapp.com/api/';
 
     findLessonsForModule(moduleId, courseId) {
         return fetch(this.URL + 'course/' + courseId + '/module/' + moduleId + '/lesson')

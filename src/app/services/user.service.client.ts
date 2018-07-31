@@ -1,5 +1,5 @@
 export class UserServiceClient {
-    URL = 'http://localhost:4000/api/';
+    URL = 'https://webdev-server-node.herokuapp.com/api/';
 
     findUserById(userId) {
         return fetch(this.URL + 'user/' + userId)
